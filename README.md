@@ -7,8 +7,7 @@ Welcome to the Pokémon API Project! This project serves a list of Pokémon with
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
 - Fetch and display Pokémon data.
