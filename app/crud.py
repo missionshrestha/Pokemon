@@ -1,16 +1,18 @@
 from sqlalchemy.future import select
-from app.models import Pokemon
-from app.schemas import PokemonCreate
+from models import Pokemon
+from schemas import PokemonCreate
 from sqlalchemy.ext.asyncio import AsyncSession
 
 async def get_pokemon_by_name(session: AsyncSession, name: str):
     result = await session.execute(select(Pokemon).filter(Pokemon.name == name))
     return result.scalars().first()
 
-async def get_all_pokemons(session: AsyncSession, name: str = None):
+async def get_all_pokemons(session: AsyncSession, name: str = None, type: str = None):
     query = select(Pokemon)
     if name:
         query = query.filter(Pokemon.name.ilike(f"%{name}%"))
+    if type:
+        query = query.filter(Pokemon.type.ilike(f"%{type}%"))
     result = await session.execute(query)
     return result.scalars().all()
 
