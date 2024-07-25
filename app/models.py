@@ -4,7 +4,8 @@ from database import Base
 class Pokemon(Base):
     __tablename__ = "pokemons"
 
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True)
-    image = Column(String)
-    type = Column(String)
+
+    id: int = Column(Integer, primary_key=True, index=True)
+    name: str = Column(String, index=True)
+    image: str = Column(String)
+    type: str = Column(String)
